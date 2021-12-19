@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
 import CalculatorForm from '../components/CalculatorForm'
+import DetailedTable from '../components/DetailedTable'
 
 
 const Calculator = () => {
@@ -74,40 +75,17 @@ const Calculator = () => {
           availableCategories={ availableCategories }
         />
 
+        <DetailedTable
+          addedPackages={addedPackages}
+        />
 
-        {
-          addedPackages.length > 0 && <table>
-            <thead>
-              <tr>
-                <th>Tipo de envase</th>
-                <th>Cantidad</th>
-                <th>Puntos acumulados</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                addedPackages.map(current_package => (
-                  <tr 
-                    key={current_package.package.type}
-                  >
-                    <td>{current_package.package.type}</td>
-                    <td>{current_package.quantity}</td>
-                    <td>{current_package.total_points}</td>
-                  </tr>
-                ))
-              }
-              <tr className="total-points">
-                <td></td>
-                <td></td>
-                <td>
-                  {
-                    addedPackages.reduce((accum, currentPackage) => accum + currentPackage.total_points, 0)
-                  }
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        }
+        <h1>
+          Total de puntos:  
+          {
+            addedPackages.reduce((accum, currentPackage) => accum + currentPackage.total_points, 0)
+          }
+        </h1>
+        
       </Box>
     </Container>
   );

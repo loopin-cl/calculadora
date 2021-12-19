@@ -40,7 +40,7 @@ const CalculatorForm = ({ addPackage, packageList, availableCategories }) => {
   }
 
   return (
-    <React.Fragment>
+    <section className="form-container">
       <FormControl fullWidth>
         <InputLabel id="category-label">Categoría</InputLabel>
         <Select
@@ -95,6 +95,7 @@ const CalculatorForm = ({ addPackage, packageList, availableCategories }) => {
           variant="outlined" 
           type="number"
           inputProps={{ min: 1 }} 
+          fullWidth
           onChange={e => setQuantityInput(parseInt(e.target.value))}
         />
       }
@@ -104,12 +105,14 @@ const CalculatorForm = ({ addPackage, packageList, availableCategories }) => {
           <Button 
             variant="contained"
             onClick={appendPackage}
+            fullWidth
+            size="large"
           >
             Agregar envase
           </Button>
         </div>
       }
-    </React.Fragment>
+    </section>
   );
 }
 
