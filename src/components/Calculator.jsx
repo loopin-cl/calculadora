@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 
 import CalculatorForm from '../components/CalculatorForm'
 import DetailedTable from '../components/DetailedTable'
+import TotalPointsContainer from '../components/TotalPointsContainer'
 
 
 const Calculator = () => {
@@ -65,7 +66,6 @@ const Calculator = () => {
   }
 
   const removeSelected = (packageToRestore) => {
-    console.log('asdf');
     setAddedPackages(addedPackages.filter(currentPackage => currentPackage.package.id !== packageToRestore.id));
     setPackageList([...packageList, packageToRestore]);
   }
@@ -86,12 +86,9 @@ const Calculator = () => {
           removeSelected={removeSelected}
         />
 
-        <h1>
-          Total de puntos:  
-          {
-            addedPackages.reduce((accum, currentPackage) => accum + currentPackage.total_points, 0)
-          }
-        </h1>
+        <TotalPointsContainer
+          totalPoints={addedPackages.reduce((accum, currentPackage) => accum + currentPackage.total_points, 0)}
+        />
         
       </Box>
     </Container>
