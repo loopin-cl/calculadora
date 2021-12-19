@@ -9,6 +9,8 @@ import TableRow from '@mui/material/TableRow';
 
 import { XCircle } from 'react-feather';
 
+import { numberWithDelimiter } from '../components/helpers/numberFormat';
+
 const DetailedTable = ({ addedPackages, removeSelected }) => {
 
   return (
@@ -31,7 +33,9 @@ const DetailedTable = ({ addedPackages, removeSelected }) => {
                 >
                   <TableCell>{currentPackage.package.type}</TableCell>
                   <TableCell className="amount">{currentPackage.quantity}</TableCell>
-                  <TableCell className="amount">{currentPackage.total_points}</TableCell>
+                  <TableCell className="amount">
+                    { numberWithDelimiter(currentPackage.total_points) }
+                  </TableCell>
                   <TableCell>
                     <XCircle
                       className="clickeable-icon"

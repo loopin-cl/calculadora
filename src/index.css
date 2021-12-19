@@ -19,3 +19,29 @@ code {
 td.amount {
   text-align: right;
 }
+
+.total-points-container {
+  margin: 50px 16px;
+}
+
+.total-points-container label {
+  margin: 0;
+}
+
+.total-points-container h2 {
+  margin-bottom: 0;
+}
+
+.total-points-number {
+  text-align: right;
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.total-points-number span {
+  font-size: 20px;
+  margin-right: 10px;
+  text-decoration: line-through;
+}
