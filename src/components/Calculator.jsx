@@ -64,6 +64,12 @@ const Calculator = () => {
     setPackageList(packageList.filter(currentPackage => currentPackage.id !== id));
   }
 
+  const removeSelected = (packageToRestore) => {
+    console.log('asdf');
+    setAddedPackages(addedPackages.filter(currentPackage => currentPackage.package.id !== packageToRestore.id));
+    setPackageList([...packageList, packageToRestore]);
+  }
+
   return (
     <Container component="main" className="calculator-container">
       <Box>
@@ -77,6 +83,7 @@ const Calculator = () => {
 
         <DetailedTable
           addedPackages={addedPackages}
+          removeSelected={removeSelected}
         />
 
         <h1>

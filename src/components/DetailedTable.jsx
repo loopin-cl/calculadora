@@ -7,7 +7,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 
-const DetailedTable = ({ addedPackages }) => {
+import { XCircle } from 'react-feather';
+
+const DetailedTable = ({ addedPackages, removeSelected }) => {
 
   return (
     <TableContainer>
@@ -23,14 +25,19 @@ const DetailedTable = ({ addedPackages }) => {
           </TableHead>
           <TableBody>
             {
-              addedPackages.map(current_package => (
+              addedPackages.map(currentPackage => (
                 <TableRow 
-                  key={current_package.package.type}
+                  key={currentPackage.package.id}
                 >
-                  <TableCell>{current_package.package.type}</TableCell>
-                  <TableCell className="amount">{current_package.quantity}</TableCell>
-                  <TableCell className="amount">{current_package.total_points}</TableCell>
-                  <TableCell />
+                  <TableCell>{currentPackage.package.type}</TableCell>
+                  <TableCell className="amount">{currentPackage.quantity}</TableCell>
+                  <TableCell className="amount">{currentPackage.total_points}</TableCell>
+                  <TableCell>
+                    <XCircle
+                      className="clickeable-icon"
+                      onClick={() => removeSelected(currentPackage.package)}
+                    />
+                  </TableCell>
                 </TableRow>
               ))
             }
