@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Chip from '@mui/material/Chip';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -31,9 +32,18 @@ const DetailedTable = ({ addedPackages, removeSelected }) => {
                 <TableRow 
                   key={currentPackage.package.id}
                 >
-                  <TableCell>{currentPackage.package.type}</TableCell>
-                  <TableCell className="amount">{currentPackage.quantity}</TableCell>
-                  <TableCell className="amount">
+                  <TableCell  align="left">
+                    <Chip 
+                      label={currentPackage.package.category}
+                      size="small"
+                      className={`chip-${currentPackage.package.category.toLowerCase()}`}
+                    />
+                    <p className="package-type">
+                      { currentPackage.package.type }
+                    </p>
+                  </TableCell>
+                  <TableCell align="right">{currentPackage.quantity}</TableCell>
+                  <TableCell align="right">
                     { numberWithDelimiter(currentPackage.total_points) }
                   </TableCell>
                   <TableCell>
