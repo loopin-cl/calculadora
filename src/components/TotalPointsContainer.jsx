@@ -8,6 +8,15 @@ import { numberWithDelimiter } from '../components/helpers/numberFormat';
 const TotalPointsContainer = ({ totalPoints }) => {
   const [firstWithdrawal, setFirstWithdrawal] = useState(false);
 
+  const calculateBonus = (maximumBonus = 1000, bonusThreshold = 1000) => {
+    if (totalPoints > bonusThreshold) {
+      return totalPoints + maximumBonus;
+    }
+    else {
+      return totalPoints * 2;
+    }
+  }
+
   return (
     <React.Fragment>
       {
@@ -27,7 +36,7 @@ const TotalPointsContainer = ({ totalPoints }) => {
             firstWithdrawal ? 
             <p className="total-points-number">
               <span>{ numberWithDelimiter(totalPoints) }</span>
-              { numberWithDelimiter(totalPoints * 2) }
+              { numberWithDelimiter(calculateBonus()) }
             </p>
             :
             <p className="total-points-number">
