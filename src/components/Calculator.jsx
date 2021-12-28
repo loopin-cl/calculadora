@@ -29,6 +29,8 @@ const Calculator = () => {
         {id: 10, category: 'Licores', type: 'Botella Tequila 750cc', points: 70},
         {id: 11, category: 'Licores', type: 'Botella Gin 700cc o 750cc', points: 100},
         {id: 12, category: 'Licores', type: 'Botella Whisky 700cc o 750cc', points: 100},
+        {id: 25, category: 'Vinos', type: 'Botella 375cc', points: 30},
+        {id: 26, category: 'Vinos', type: 'Botella 500cc', points: 40},
         {id: 13, category: 'Vinos', type: 'Botella 750cc', points: 50},
         {id: 14, category: 'Vinos', type: 'Espumante 750cc', points: 50},
         {id: 15, category: 'Vinos', type: 'Botellón 1,5 Litros', points: 70},
